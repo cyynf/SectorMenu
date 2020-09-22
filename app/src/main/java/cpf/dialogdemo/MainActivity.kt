@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             .setAdapter(object : SectorMenuAdapter {
                 override fun getCount(): Int = 3
 
-                override fun bindView(): View {
+                override fun bindView(position: Int): View {
                     return View.inflate(this@MainActivity, R.layout.menu, null).also {
                         it.menu_icon.setImageResource(R.mipmap.ic_launcher_round)
                         it.menu_text.text = "标题"
@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity() {
                 sectorMenu.open()
             }
         }
+
     }
 
 }

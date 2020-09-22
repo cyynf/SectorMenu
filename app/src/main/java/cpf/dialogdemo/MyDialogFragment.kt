@@ -51,7 +51,6 @@ class MyDialogFragment : DialogFragment(),
                     horizontalMargin = 0f
                     verticalMargin = 0f
                 }
-                setWindowAnimations(0)
             }
             setCancelable(false)
             setCanceledOnTouchOutside(false)
@@ -96,7 +95,7 @@ class MyDialogFragment : DialogFragment(),
 
     override fun getCount(): Int = 4
 
-    override fun bindView(): View {
+    override fun bindView(position: Int): View {
         return View.inflate(context, R.layout.menu, null).also {
             it.menu_icon.setImageResource(R.mipmap.ic_launcher_round)
             it.menu_text.text = "标题"

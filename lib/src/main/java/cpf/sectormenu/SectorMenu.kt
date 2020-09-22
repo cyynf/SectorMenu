@@ -169,7 +169,7 @@ class SectorMenu : View.OnClickListener {
         val startAngle = mStartAngle.takeIf { mStartInclude } ?: (mStartAngle + stepAngle)
         val endAngle = mEndAngle.takeIf { mEndInclude } ?: (mEndAngle - stepAngle)
         for (angle in endAngle downTo startAngle step stepAngle) {
-            val itemView = adapter.bindView()
+            val itemView = adapter.bindView(itemViews.size)
                 .apply {
                     setCenterPointF(centerPointF)
                     alpha = 0f
@@ -260,7 +260,7 @@ class SectorMenu : View.OnClickListener {
 
 interface SectorMenuAdapter {
     fun getCount(): Int
-    fun bindView(): View
+    fun bindView(position: Int): View
 }
 
 interface OnSectorMenuItemClickListener {
